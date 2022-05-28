@@ -46,13 +46,13 @@ public class BasketAnalyzer {
         HashMap<String, ArrayList<Double>> map = new HashMap<>();
 
         for(BasketData bd : baskets) {
-            if (!map.containsKey(bd.getPaymentType()))
-                map.put(bd.getPaymentType(), new ArrayList<Double>());
+            if (!map.containsKey(bd.getProductCategory()))
+                map.put(bd.getProductCategory(), new ArrayList<Double>());
 
-            ArrayList<Double> list = map.get(bd.getPaymentType()); // Referenzparameter
+            ArrayList<Double> list = map.get(bd.getProductCategory()); // Referenzparameter
             list.add(bd.getOrderTotal());
 
-            //map.put(bd.getPaymentType(), list);
+            //map.put(bd.getProductCategory(), list);
         }
 
         return map;
@@ -62,15 +62,15 @@ public class BasketAnalyzer {
         HashMap<String, ArrayList<Double>> map = new HashMap<>();
 
         for(BasketData bd : baskets) {
-            if (!map.containsKey(bd.getPaymentType())){
+            if (!map.containsKey(bd.getProductCategory())){
                 ArrayList<Double> list =  new ArrayList<Double>();
                 list.add(bd.getOrderTotal());
-                map.put(bd.getPaymentType(), list);
+                map.put(bd.getProductCategory(), list);
             }
             else {
-                ArrayList<Double> list = map.get(bd.getPaymentType()); // Referenzparameter
+                ArrayList<Double> list = map.get(bd.getProductCategory()); // Referenzparameter
                 list.add(bd.getOrderTotal());
-                //map.put(bd.getPaymentType(), list);
+                //map.put(bd.getProductCategory(), list);
             }
         }
         return map;
